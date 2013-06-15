@@ -39,6 +39,7 @@ var winners=new Array("0","0","0", "0", "0");
 
 io.on('connection', function(socket) {
   var address = socket.handshake.address;
+  console.log("New connection from " + address.address + ":" + address.port);
 
   io.sockets.emit('members', address);
 
