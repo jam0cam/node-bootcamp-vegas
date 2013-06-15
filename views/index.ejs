@@ -23,7 +23,7 @@
     });          
 
     socket.on('members', function(data) {
-      $('#members').append('<li>' + data.address + '</li>');
+      $('#members').append('<li>' + data.headers["x-forwarded-for"] + '</li>');
     });
 
     socket.on('winner', function(data) {
@@ -71,7 +71,7 @@
 
 
 
-<tiny>with logging</tiny>
+<tiny>real ip</tiny>
 
   
 </body>
