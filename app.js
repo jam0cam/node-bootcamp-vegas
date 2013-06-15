@@ -39,9 +39,9 @@ var winners=new Array("0","0","0", "0", "0");
 
 io.on('connection', function(socket) {
   var address = socket.handshake.address;
-  console.log("New connection from " + address.address + ":" + address.port);
+  console.log("New connection from " + socket);
 
-  io.sockets.emit('members', address);
+  io.sockets.emit('members', socket.handshake);
 
   //this is called when a answer is submitted in the format {number, response}
   socket.on('answer', function(data){
