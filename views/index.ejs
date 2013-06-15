@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <script src='/socket.io/socket.io.js'></script>
+  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js'></script>
+  <script>
+  var socket = io.connect(null, { transports: ['xhr-polling'] });
+  $(document).ready(function() {
+
+    $('#btn1').click(function() {
+      socket.emit('answer', {number: '1', response: $('#q1').val()});
+    });          
+
+    $('#btn2').click(function() {
+      socket.emit('answer', {number: '2', response: $('#q2').val()});
+    });          
+
+    $('#btn3').click(function() {
+      socket.emit('answer', {number: '3', response: $('#q3').val()});
+    });          
+
+    socket.on('members', function(data) {
+      $('#members').append('<li>' + data + '</li>');
+    });
+
+    socket.on('winner', function(data) {
+      $('#winners').append('<li> Question ' + data.number + ' winner: ' + data.winner + ' answer: ' + data.answer + ' </li>');
+    });
+
+  });
+
+  </script>
+</head>
+<body>
+  <h1>Math Quiz</h1>
+
+  <ol>
+          <li>What is 1 + 1?      
+            <input id="q1" type="text" />
+            <button id="btn1">send</button><br>
+          </li>
+
+          <li>What is 3 * 4 / 2 + 11?      
+            <input id="q2" type="text" />
+            <button id="btn2">send</button><br>
+          </li>
+
+          <li>What is 2^(3 * 2)?      
+            <input id="q3" type="text" />
+            <button id="btn3">send</button><br>
+          </li>          
+
+        </ol>
+
+<br><br>
+        <b>members</b><br>
+        <ul id="members"></ul>
+
+<br><br>
+        <b>winners</b><br>
+        <ul id="winners"></ul>  
+
+
+
+  
+</body>
+</html>
