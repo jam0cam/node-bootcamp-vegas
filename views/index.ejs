@@ -23,7 +23,7 @@
     });          
 
     socket.on('members', function(data) {
-      $('#members').append('<li>' + data + '</li>');
+      $('#members').append('<li>' + data.address + '</li>');
     });
 
     socket.on('winner', function(data) {
@@ -63,6 +63,9 @@
         <b>winners</b><br>
         <ul id="winners"></ul>  
 
+<br><br>
+        <b>Connection types</b><br>
+        <ul id="types"></ul>  
 
 
   
