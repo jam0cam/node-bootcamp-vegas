@@ -38,14 +38,12 @@ server.listen(app.get('port'), function(){
 var winners=new Array("0","0","0", "0", "0");
 
 io.on('connection', function(socket) {
-  var address = socket.handshake.address;
-  console.log("New connection from " + socket);
-
+  var address = socket.handshake;
   io.sockets.emit('members', socket.handshake);
 
   //this is called when a answer is submitted in the format {number, response}
   socket.on('answer', function(data){
-    var address = socket.handshake.address;
+    var address = socket.handshake;
 
     if (data.number == '1' && winners[0] == '0'){      
       if (data.response == '2') {

@@ -27,7 +27,7 @@
     });
 
     socket.on('winner', function(data) {
-      $('#winners').append('<li> Question ' + data.number + ' winner: ' + data.winner + ' answer: ' + data.answer + ' </li>');
+      $('#winners').append('<li> Question ' + data.number + ' winner: ' + data.headers["x-forwarded-for"] + ' answer: ' + data.answer + ' </li>');
     });
 
   });
@@ -71,7 +71,7 @@
 
 
 
-<tiny>real ip</tiny>
+<tiny>a</tiny>
 
   
 </body>
