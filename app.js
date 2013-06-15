@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
   //this is called when a answer is submitted in the format {number, response}
   socket.on('answer', function(data){
     //var address = socket.handshake.address.address;
-    var address = socket.connection.remoteAddress.address;
+    var address = socket.connection.remoteAddress;
 
     if (data.number == '1' && winners[0] == '0'){      
       if (data.response == '2') {
