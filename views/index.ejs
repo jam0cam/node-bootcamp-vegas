@@ -27,9 +27,9 @@
     });
 
     socket.on('winner', function(data) {
-      // $('#winners').append('<li> Question ' + data.number + ' winner: ' + data.winner.headers["x-forwarded-for"] + ' answer: ' + data.answer + ' </li>');
+       $('#winners').append('<li> Question ' + data.number + ' winner: ' + data.winner.headers["x-forwarded-for"] + ' answer: ' + data.answer + ' </li>');
 
-      $('#winners').append('<li> Question ' + data.number + ' winner: answer: ' + data.answer + ' </li>');
+      //$('#winners').append('<li> Question ' + data.number + ' winner: answer: ' + data.answer + ' </li>');
     });
 
   });
